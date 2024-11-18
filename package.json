@@ -1,0 +1,47 @@
+{
+  "name": "api-golden-raspberry-awards",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node -r dotenv/config ./api/src/server",
+    "dev": "npx nodemon -r dotenv/config ./api/src/server",
+    "test": "jest --config jest.config.cjs"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "node"
+    ],
+    "rootDir": ".",
+    "modulePaths": [
+      "<rootDir>"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "description": "",
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "cors": "^2.8.5",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-async-errors": "^3.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@jest/globals": "^29.7.0",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "prisma": "^5.22.0",
+    "supertest": "^7.0.0"
+  }
+}
