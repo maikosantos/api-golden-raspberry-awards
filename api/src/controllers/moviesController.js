@@ -47,17 +47,34 @@ async function getProducersWithAwardIntervals() {
       lastYear = year;
     });
 
-    const min = intervalsYears.reduce((minInterval, current) => {
-      return current.interval < minInterval.interval ? current : minInterval;
-    }, intervalsYears[0]);
+    //console.log(intervalsYears);
 
-    const max = intervalsYears.reduce((minInterval, current) => {
-      return current.interval > minInterval.interval ? current : minInterval;
-    }, intervalsYears[0]);
+    const findMinIntervals = (intervalsYears) => {
+      const minInterval = Math.min(
+        ...intervalsYears.map((interval) => interval.interval)
+      );
 
-    //console.log({ min: [min], max: [max] });
+      return intervalsYears.filter(
+        (interval) => interval.interval === minInterval
+      );
+    };
+    const min = findMinIntervals(intervalsYears);
 
-    return { min: [min], max: [max] };
+    const findMaxIntervals = (intervalsYears) => {
+      const maxInterval = Math.max(
+        ...intervalsYears.map((interval) => interval.interval)
+      );
+
+      return intervalsYears.filter(
+        (interval) => interval.interval === maxInterval
+      );
+    };
+
+    const max = findMaxIntervals(intervalsYears);
+
+    //console.log({ min: min, max: max });
+
+    return { min: min, max: max };
   } catch (error) {
     console.error("Failed to calculate award intervals: ", error);
     throw error;

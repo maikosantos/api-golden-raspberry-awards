@@ -27,7 +27,7 @@ describe("Movies API Integration Tests", () => {
       expect(Array.isArray(response.body.max)).toBeTruthy();
     });
 
-    it("should return the correct producer with minimum interval", async () => {
+    it("should return the correct producers with minimum interval", async () => {
       const response = await request(app)
         .get("/movies/awards/intervals")
         .expect(200);
@@ -44,7 +44,7 @@ describe("Movies API Integration Tests", () => {
       );
     });
 
-    it("should return the correct producer with maximum interval", async () => {
+    it("should return the correct producers with maximum interval", async () => {
       const response = await request(app)
         .get("/movies/awards/intervals")
         .expect(200);
